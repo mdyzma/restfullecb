@@ -18,3 +18,16 @@ class ModeltestCase(TestCase):
         new_cunt = Currency.objects.count()
 
         self.assertNotEquals(old_count, new_count)
+
+
+class ViewTestCase(TestCase):
+    """Test suite for the api views."""
+
+    def setUp(self):
+        """Define the test client and other test variables."""
+        self.client = APIClient()
+        self.currency_data = {'symbol': 'USD'}
+        self.response = self.client.post(
+            reverse('create'),
+            self.bucketlist_data,
+            format="json")
