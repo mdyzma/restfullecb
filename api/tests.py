@@ -1,21 +1,21 @@
 """Test suite for ECB restfull service"""
 from django.test import TestCase
-from models import Currency
+from api.models import Currency
 
 
 class ModeltestCase(TestCase):
     """Class defines test suite for currency list model."""
 
-    def setUP(self):
+    def setUp(self):
         """Basic model class setup for all test cases"""
         self.currency_symbol = "USD"
-        self.currency = Currency(name=self.currency_symbol)
+        self.currency = Currency(symbol=self.currency_symbol)
 
     def test_model_creates_currency_list(self):
         """Tests if model properly stores Curency lists"""
-        old_count = Curency.objects.count()
+        old_count = Currency.objects.count()
         self.currency.save()
-        new_cunt = Currency.objects.count()
+        new_count = Currency.objects.count()
 
         self.assertNotEquals(old_count, new_count)
 
