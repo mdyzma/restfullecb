@@ -97,3 +97,8 @@ Should return:
 
 # TODO list
 
+1. test scrapper
+2. test REST JSON view
+3. Extend API with  PUT and DELETE
+4. list view of most current record
+5. refactor moel for more extensible (curencies table and ratestable with currency as a foreign key)
