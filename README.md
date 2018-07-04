@@ -6,11 +6,35 @@ Is Django based project to share programatically several currency exchange rates
 
 ## Quickstart
 
+Clone repository to you local mahine:
 
-## Description
+```git clone https://github.com/mdyzma/restfullecb.git```
+
+### Virtualenv
+
+One may create virtual environment and run app there. `virtualenv` package must be present in the system, or user python interpreter
+
+```virtualenv ~/.restfullecb```
+```source .restfullecb/bin/activate```
+
+After creating and activating local python, please instakll requitements to run application.
+
+### Requirements
+
+To install requirements cd to the copied project folder and enter command:
+
+```pip install -r requirements.txt```
+
+### Run app
+
+Running application locally is easy as:
+
+```python manage.py runserver```
+
+# Description
 
 
-Programm on start scrapps current ECB daily statistics and places them in data base.
+Programm on start scrapps current ECB daily statistics and places them in data base. While running it will repeate this procedure every day from Monday to Friday.
 
 List of currencies supported:
 
@@ -50,7 +74,7 @@ List of currencies supported:
 
 ## API design
 
-For now API is constructed
+For now API consists of single GET endpinttructed
 
 ## API use
 
