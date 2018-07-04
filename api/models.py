@@ -8,4 +8,4 @@ class Currency(models.Model):
 
     def __str__(self):
         """Human readible representation of the record"""
-        return "{}".format()
+        return "{}: {}".format(self.symbol, self.ecb_rate)
