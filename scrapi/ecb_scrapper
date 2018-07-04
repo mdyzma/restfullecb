@@ -1,0 +1,26 @@
+"""Module responsible for scrapping ECB RSS feed."""
+import requests
+from xml.etree import ElementTree as ET
+
+
+class ECBscrapper:
+    """European Central Bank dail report scrapping class"""
+    def __init__(self):
+        self._daily_url = 'http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml'
+        self.rss_response = self.scrapp_ecb()
+        self.rates_raw = {}
+    
+    def scrapp_ecb(self):
+        """Returns daily xml report from ECB"""
+        r = requests.get(self._daily_url)
+        if r.status_code is 200:
+            return r
+
+    def process_data(self):
+        tree = ET.parse(self.rss_response.raw)
+        root = root = tree.getroot()
+        
+        for child in root:
+            for subchild in child:
+                for subsubchild in subchild:
+                    self.rates_raw[subsubchild.attrib['currency']] = subsubchild.attrib['rate']
